@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbars"
+        android:background="@drawable/top_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <androidx.cardview.widget.CardView
+        android:layout_margin="15dp"
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/lavender"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/txtTopic"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="5dp"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="@android:color/background_light"
+                android:text="Topic: Animals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ProgressBar
+
+                android:id="@+id/progressQuestion"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+
+                android:progressDrawable="@drawable/custom_progrssbar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+            <TextView
+                android:id="@+id/txtNumberQS"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="@android:color/background_light"
+                android:text="4/15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_width="180dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="180dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+
+                        android:id="@+id/txtBehind"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/background_dark"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                    <ImageView
+                        android:src="@drawable/animal"
+                        android:id="@+id/imgFront"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btnFlip"
+                android:elevation="10dp"
+                android:textSize="18sp"
+                android:text="Flip"
+                android:textColor="@android:color/background_light"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/btnNext"
+                android:elevation="10dp"
+                android:textSize="18sp"
+                android:text="Next"
+                android:textColor="@android:color/background_light"
+                android:layout_marginTop="150dp"
+                android:layout_gravity="center"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

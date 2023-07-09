@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.TranslateActivity">
+    
+     <LinearLayout
+
+         android:layout_width="match_parent"
+         android:orientation="vertical"
+         android:layout_height="match_parent">
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="0dp"
+             android:layout_weight="1"
+             android:orientation="vertical">
+
+             <androidx.appcompat.widget.Toolbar
+                 android:id="@+id/toolbar"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:background="@drawable/top_background" />
+
+
+             <LinearLayout
+                 android:id="@+id/linearLayout"
+                 android:layout_width="match_parent"
+                 android:layout_height="60dp"
+                 android:layout_marginTop="20dp"
+                 android:orientation="horizontal">
+
+                 <Spinner
+                     android:id="@+id/chooseSourceLanguage"
+                     android:layout_width="wrap_content"
+                     android:layout_height="60dp"
+                     android:layout_weight="1"
+                     android:text="English"
+                     app:cornerRadius="15dp"/>
+
+                 <ImageButton
+                     android:layout_width="wrap_content"
+                     android:layout_height="60dp"
+                     android:layout_gravity="center_vertical"
+                     android:background="@color/white"
+                     android:minWidth="48dp"
+                     android:padding="10dp"
+                     android:src="@drawable/baseline_compare_arrows_24"></ImageButton>
+
+                 <Spinner
+                     android:id="@+id/chooseTargetLanguage"
+                     android:layout_width="wrap_content"
+                     android:layout_height="60dp"
+                     android:layout_weight="1"
+                     android:text="French"
+                     app:cornerRadius="15dp"/>
+
+
+             </LinearLayout>
+
+
+             <EditText
+                 android:id="@+id/sourceLanguageET"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="40dp"
+                 android:gravity="start"
+                 android:hint="Enter text you want to translate"
+                 android:minHeight="170dp"
+                 android:textSize="18sp"
+                 app:layout_constraintTop_toBottomOf="@+id/linearLayout"></EditText>
+
+             <LinearLayout
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="end"
+                 android:orientation="horizontal">
+
+                 <ImageButton
+                     android:id="@+id/copySrcButton"
+                     android:layout_width="48dp"
+                     android:layout_height="48dp"
+                     android:layout_marginEnd="10dp"
+                     android:layout_marginBottom="16dp"
+                     android:background="@color/white"
+                     android:src="@drawable/baseline_content_copy_24"
+                     app:layout_constraintBottom_toBottomOf="@+id/sourceLanguageET"
+                     app:layout_constraintEnd_toEndOf="parent"></ImageButton>
+
+                 <ImageButton
+                     android:id="@+id/recordSrcButton"
+                     android:layout_width="48dp"
+                     android:layout_height="48dp"
+                     android:layout_marginEnd="5dp"
+                     android:layout_marginBottom="16dp"
+                     android:background="@color/white"
+                     android:src="@drawable/baseline_mic_24"
+                     app:layout_constraintBottom_toBottomOf="@id/sourceLanguageET"
+                     app:layout_constraintEnd_toStartOf="@id/copySrcButton"></ImageButton>
+
+                 <ImageButton
+                     android:id="@+id/voiceSrcButton"
+                     android:layout_width="48dp"
+                     android:layout_height="48dp"
+                     android:layout_marginEnd="5dp"
+                     android:layout_marginBottom="16dp"
+                     android:background="@color/white"
+                     android:src="@drawable/baseline_volume_up_24"
+                     app:layout_constraintBottom_toBottomOf="@id/sourceLanguageET"
+                     app:layout_constraintEnd_toStartOf="@id/recordSrcButton"></ImageButton>
+             </LinearLayout>
+
+
+             <EditText
+                 android:id="@+id/targetLanguageET"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="40dp"
+                 android:gravity="start"
+                 android:hint="Translated text"
+                 android:minHeight="170dp"
+                 android:textSize="18sp"
+                 app:layout_constraintTop_toBottomOf="@+id/sourceLanguageET">
+
+             </EditText>
+
+             <LinearLayout
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="end"
+                 android:orientation="horizontal">
+
+                 <ImageButton
+                     android:id="@+id/copyTargetButton"
+                     android:layout_width="48dp"
+                     android:layout_height="48dp"
+                     android:layout_marginEnd="10dp"
+                     android:layout_marginBottom="16dp"
+                     android:background="@color/white"
+                     android:src="@drawable/baseline_content_copy_24"
+                     app:layout_constraintBottom_toBottomOf="@+id/targetLanguageET"
+                     app:layout_constraintEnd_toEndOf="parent"></ImageButton>
+
+                 <ImageButton
+                     android:id="@+id/voiceTargetButton"
+                     android:layout_width="48dp"
+                     android:layout_height="48dp"
+                     android:layout_marginEnd="5dp"
+                     android:layout_marginBottom="16dp"
+                     android:background="@color/white"
+                     android:src="@drawable/baseline_volume_up_24"
+                     app:layout_constraintBottom_toBottomOf="@id/targetLanguageET"
+                     app:layout_constraintEnd_toStartOf="@id/copyTargetButton"></ImageButton>
+             </LinearLayout>
+
+
+         </LinearLayout>
+
+         <Button
+             android:id="@+id/translateButton"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_alignParentBottom="true"
+             android:text="Translate"
+             android:drawableLeft="@drawable/baseline_translate_24"
+             android:layout_marginStart="10dp"
+             android:layout_marginEnd="10dp"
+             app:cornerRadius="15dp"
+             android:layout_marginBottom="20dp">
+
+         </Button>
+     </LinearLayout>
+
+
+
+
+
+
+
+
+
+</ScrollView>

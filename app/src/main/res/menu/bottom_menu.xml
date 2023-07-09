@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/bottom_home"
+        android:icon="@drawable/baseline_home_24"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/bottom_course"
+        android:icon="@drawable/baseline_menu_book_24"
+        android:title="Courses" />
+
+    <item
+        android:id="@+id/bottom_game"
+        android:icon="@drawable/baseline_videogame_asset_24"
+        android:title="Games" />
+
+    <item
+        android:id="@+id/bottom_tool"
+        android:icon="@drawable/baseline_translate_24"
+        android:title="Tools" />
+
+    <item
+        android:id="@+id/bottom_account"
+        android:icon="@drawable/baseline_person_24_2"
+        android:title="Account" />
+
+
+</menu>

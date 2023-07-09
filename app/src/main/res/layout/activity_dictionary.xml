@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DictionaryActivity">
+
+
+
+       <LinearLayout
+           android:orientation="vertical"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+           <androidx.appcompat.widget.Toolbar
+               android:id="@+id/toolbar"
+               android:background="@drawable/top_background"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
+
+           <EditText
+               android:imeOptions="actionSearch"
+               android:id="@+id/searchBar"
+               android:inputType="text"
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:layout_marginStart="10dp"
+               android:layout_marginTop="20dp"
+               android:layout_marginEnd="10dp"
+               android:background="@drawable/edit_text_border"
+               android:drawableStart="@drawable/baseline_search_24"
+               android:drawablePadding="10dp"
+               android:hint="Search here"
+               app:layout_constraintTop_toBottomOf="@+id/top_background" />
+
+           <androidx.cardview.widget.CardView
+               android:layout_margin="15dp"
+               app:cardBackgroundColor="#FFFFFF"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+               <LinearLayout
+                   android:padding="10dp"
+                   android:orientation="vertical"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+                   <TextView
+                       android:id="@+id/txtWord"
+                       android:textStyle="bold"
+                       android:textColor="@android:color/background_dark"
+                       android:textSize="28sp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+                   <TextView
+                       android:id="@+id/txtPronounce"
+                       android:textColor="@android:color/background_dark"
+                       android:textSize="18sp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+                   <TextView
+                       android:id="@+id/txtpartOfSpeech"
+                       android:textColor="@android:color/background_dark"
+                       android:textSize="18sp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+                   <TextView
+                       android:text="Definition"
+                       android:textStyle="bold"
+                       android:textColor="@android:color/background_dark"
+                       android:textSize="28sp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+                  <ScrollView
+
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+                      <LinearLayout
+                          android:orientation="vertical"
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent">
+                          <TextView
+                              android:id="@+id/txtDefinition"
+                              android:textColor="@android:color/background_dark"
+                              android:textSize="18sp"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"/>
+                          <TextView
+                              android:text="Synonyms"
+                              android:textStyle="bold"
+                              android:textColor="@android:color/background_dark"
+                              android:textSize="28sp"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"/>
+
+                          <TextView
+                              android:id="@+id/txtsynonyms"
+
+                              android:textStyle="bold"
+                              android:textColor="@android:color/background_dark"
+                              android:textSize="28sp"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"/>
+                          <TextView
+                              android:text="Antonyms"
+                              android:textStyle="bold"
+                              android:textColor="@android:color/background_dark"
+                              android:textSize="28sp"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"/>
+                          <TextView
+                              android:id="@+id/txtAntonyms"
+
+                              android:textStyle="bold"
+                              android:textColor="@android:color/background_dark"
+                              android:textSize="28sp"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"/>
+                      </LinearLayout>
+                  </ScrollView>
+
+
+
+               </LinearLayout>
+
+           </androidx.cardview.widget.CardView>
+
+       </LinearLayout>
+
+</RelativeLayout>

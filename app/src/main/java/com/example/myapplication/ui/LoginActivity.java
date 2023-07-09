@@ -61,6 +61,12 @@ public class LoginActivity extends AppCompatActivity {
         googleBtn = findViewById(R.id.googleBtn);
 
         auth = FirebaseAuth.getInstance();
+        if(auth.getCurrentUser()!=null){
+            if(auth.getCurrentUser().isEmailVerified()){
+                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                finish();
+            }
+        }
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,9 +81,15 @@ public class LoginActivity extends AppCompatActivity {
                                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                     @Override
                                     public void onSuccess(AuthResult authResult) {
-                                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                        finish();
+
+                                        if(authResult.getUser().isEmailVerified()){
+                                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                                            finish();    
+                                        }else{
+                                            authResult.getUser().sendEmailVerification();
+                                            Toast.makeText(LoginActivity.this, "Please go to email verified", Toast.LENGTH_SHORT).show();
+                                        }
+                                        
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override

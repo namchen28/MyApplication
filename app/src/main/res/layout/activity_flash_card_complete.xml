@@ -1,0 +1,34 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <!-- Your flashcard completion message or any relevant information -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Congratulations! You completed the flashcard." />
+
+    <TextView
+        android:id="@+id/txtTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Topic: Animal" />
+
+    <!-- Button to return to the home screen -->
+    <Button
+        android:id="@+id/btnHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to Home Screen" />
+
+    <!-- Button to return to the flashcard topic screen -->
+    <Button
+        android:id="@+id/btnTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to Flashcard Topics" />
+
+</LinearLayout>
