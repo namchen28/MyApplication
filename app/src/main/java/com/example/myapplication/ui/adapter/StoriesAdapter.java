@@ -21,7 +21,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHodler>
+public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHolder>
 {
      private Context context;
      private ArrayList<StoriesModel> categoryModels;
@@ -35,15 +35,15 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHodl
 
     @NonNull
     @Override
-    public StoriesAdapter.ViewHodler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public StoriesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View convertView = LayoutInflater.from(context).inflate(R.layout.stream_stories,parent,false);
 
-        return new ViewHodler(convertView);
+        return new ViewHolder(convertView);
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull StoriesAdapter.ViewHodler holder, int position) {
+    public void onBindViewHolder(@NonNull StoriesAdapter.ViewHolder holder, int position) {
 
         StoriesModel categoryModel = categoryModels.get(position);
         holder.txtName.setText(categoryModel.getName());
@@ -71,11 +71,11 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHodl
 
 
 
-    public class ViewHodler extends RecyclerView.ViewHolder implements  View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener {
         ImageView imgIcon;
         TextView txtName;
         setOnItemClick setOnItemClick;
-        public ViewHodler(@NonNull View convertView) {
+        public ViewHolder(@NonNull View convertView) {
             super(convertView);
              imgIcon = convertView.findViewById(R.id.familyImage);
              txtName = convertView.findViewById(R.id.familyName);
