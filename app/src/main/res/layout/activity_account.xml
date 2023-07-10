@@ -13,8 +13,8 @@
         android:layout_height="100dp"
         android:layout_below="@+id/account"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_margin="24dp"
+        android:src="@drawable/man" />
 
     <TextView
         android:id="@+id/account"
@@ -28,28 +28,13 @@
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/notification"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:layout_below="@+id/avatar"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:drawableEnd="@drawable/baseline_arrow_forward_ios_24"
-        android:gravity="center_vertical"
-        android:text="Notification"
-        android:textColor="@color/black"
-        android:textSize="16dp" />
-
-    <TextView
         android:id="@+id/editAccount"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="36dp"
-        android:layout_below="@+id/notification"
+        android:layout_below="@+id/avatar"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:drawableEnd="@drawable/baseline_arrow_forward_ios_24"
         android:text="Edit Account"
@@ -88,7 +73,7 @@
         android:id="@+id/aboutUs"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="36dp"
         android:layout_below="@+id/help"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"

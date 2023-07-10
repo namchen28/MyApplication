@@ -7,18 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.myapplication.R;
-import com.example.myapplication.databinding.ActivityFlashCardCompleteBinding;
-import com.example.myapplication.databinding.ActivityQuizFinishBinding;
+import com.example.myapplication.databinding.ActivityFlashcardCompleteBinding;
+
 
 
 public class FlashCardCompleteActivity extends AppCompatActivity {
 
-    ActivityFlashCardCompleteBinding activityFlashCardCompleteBinding;
+    ActivityFlashcardCompleteBinding activityFlashCardCompleteBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityFlashCardCompleteBinding = ActivityFlashCardCompleteBinding.inflate(getLayoutInflater());
+        activityFlashCardCompleteBinding = ActivityFlashcardCompleteBinding.inflate(getLayoutInflater());
         setContentView(activityFlashCardCompleteBinding.getRoot());
         Intent intent = getIntent();
         String topic = intent.getStringExtra("Topic");
