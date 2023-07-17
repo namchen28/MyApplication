@@ -48,7 +48,16 @@ public class DifficultyActivity extends AppCompatActivity {
                 intent3.putExtra("Level", "Hard");
                 startActivity(intent3);
             }
-
         });
+            setSupportActionBar(activityDifficultyBinding.toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("Choose Difficulty");
+            activityDifficultyBinding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+        }
+
     }
-}

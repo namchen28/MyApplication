@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.CompoundButton;
 
@@ -15,6 +16,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -134,7 +136,8 @@ public class QuizzActivity extends AppCompatActivity {
                             String d = documentSnapshot.getString("d");
                             String correct = documentSnapshot.getString("correct");
                             String details = documentSnapshot.getString("details");
-                            arrayList.add(new QuizModel(qs,a,b,c,d,correct,false,details));
+                            String picture = documentSnapshot.getString("picture");
+                            arrayList.add(new QuizModel(qs,a,b,c,d,correct,false,details,picture));
                         }
                         if(arrayList.size()>0){
                             activityQuizzBinding.txtQuestion.setText("Question: "+(numberQS+1)+"\n "+arrayList.get(0).getQs());
@@ -142,6 +145,12 @@ public class QuizzActivity extends AppCompatActivity {
                             activityQuizzBinding.rB.setText(arrayList.get(0).getB());
                             activityQuizzBinding.rC.setText(arrayList.get(0).getC());
                             activityQuizzBinding.rD.setText(arrayList.get(0).getD());
+                            if(arrayList.get(0).getPicture().length()>=5){
+                                activityQuizzBinding.imgQS.setVisibility(View.VISIBLE);
+                                Picasso.get().load(arrayList.get(0).getPicture()).into(activityQuizzBinding.imgQS);
+                            }else{
+                                activityQuizzBinding.imgQS.setVisibility(View.GONE);
+                            }
                             activityQuizzBinding.txtDetails.setText(arrayList.get(0).getDetails());
                             switch (arrayList.get(0).getCorrect()){
                                 case  "A":activityQuizzBinding.txtCorrect.setText(arrayList.get(0).getA());break;
@@ -157,30 +166,48 @@ public class QuizzActivity extends AppCompatActivity {
                 });
     }
     void nextQS(){
-        if(numberQS<arrayList.size()-1){
-            numberQS++;
-            activityQuizzBinding.txtQuestion.setText("Question: "+(numberQS+1)+"\n "+arrayList.get(numberQS).getQs());
-            activityQuizzBinding.rA.setText(arrayList.get(numberQS).getA());
-            activityQuizzBinding.rB.setText(arrayList.get(numberQS).getB());
-            activityQuizzBinding.rC.setText(arrayList.get(numberQS).getC());
-            activityQuizzBinding.rD.setText(arrayList.get(numberQS).getD());
-            activityQuizzBinding.txtDetails.setText(arrayList.get(numberQS).getDetails());
-            switch (arrayList.get(numberQS).getCorrect()){
-                case  "A":activityQuizzBinding.txtCorrect.setText(arrayList.get(numberQS).getA());break;
-                case  "B":activityQuizzBinding.txtCorrect.setText(arrayList.get(numberQS).getB());break;
-                case  "C":activityQuizzBinding.txtCorrect.setText(arrayList.get(numberQS).getC());break;
-                case  "D":activityQuizzBinding.txtCorrect.setText(arrayList.get(numberQS).getD());break;
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                activityQuizzBinding.rA.setChecked(false);
+                activityQuizzBinding.rB.setChecked(false);
+                activityQuizzBinding.rC.setChecked(false);
+                activityQuizzBinding.rD.setChecked(false);
+                if(numberQS<arrayList.size()-1){
+                    numberQS++;
+                    activityQuizzBinding.txtQuestion.setText("Question: "+(numberQS+1)+"\n "+arrayList.get(numberQS).getQs());
+                    activityQuizzBinding.rA.setText(arrayList.get(numberQS).getA());
+                    activityQuizzBinding.rB.setText(arrayList.get(numberQS).getB());
+                    activityQuizzBinding.rC.setText(arrayList.get(numberQS).getC());
+                    activityQuizzBinding.rD.setText(arrayList.get(numberQS).getD());
+                    if(arrayList.get(numberQS).getPicture().length()>=5){
+                        activityQuizzBinding.imgQS.setVisibility(View.VISIBLE);
+                        Picasso.get().load(arrayList.get(numberQS).getPicture()).into(activityQuizzBinding.imgQS);
+                    }else{
+                        activityQuizzBinding.imgQS.setVisibility(View.GONE);
+                    }
+
+                    activityQuizzBinding.txtDetails.setText(arrayList.get(numberQS).getDetails());
+                    switch (arrayList.get(numberQS).getCorrect()){
+                        case  "A":activityQuizzBinding.txtCorrect.setText(arrayList.get(numberQS).getA());break;
+                        case  "B":activityQuizzBinding.txtCorrect.setText(arrayList.get(numberQS).getB());break;
+                        case  "C":activityQuizzBinding.txtCorrect.setText(arrayList.get(numberQS).getC());break;
+                        case  "D":activityQuizzBinding.txtCorrect.setText(arrayList.get(numberQS).getD());break;
+                    }
+                }else{
+                    Intent intent = new Intent(QuizzActivity.this,QuizFinishActivity.class);
+                    intent.putExtra("Level",level);
+                    intent.putExtra("Topic",categoryModel.getCategory());
+                    intent.putExtra("Correct",correctAll);
+                    intent.putExtra("QS",arrayList.size());
+                    startActivity(intent);
+
+
+                }
             }
-        }else{
-            Intent intent = new Intent(QuizzActivity.this,QuizFinishActivity.class);
-            intent.putExtra("Level",level);
-            intent.putExtra("Topic",categoryModel.getCategory());
-            intent.putExtra("Correct",correctAll);
-            intent.putExtra("QS",arrayList.size());
-            startActivity(intent);
+        },2000);
 
-
-        }
 
 
     }

@@ -8,20 +8,33 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.myapplication.R;
+import com.example.myapplication.databinding.ActivityAccountBinding;
+import com.example.myapplication.databinding.ActivityToolBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class AccountActivity extends AppCompatActivity {
 
+    ActivityAccountBinding activityAccountBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_account);
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
-        bottomNavigationView.setSelectedItemId(R.id.bottom_account);
+        activityAccountBinding = ActivityAccountBinding.inflate(getLayoutInflater());
+        setContentView(activityAccountBinding.getRoot());
+        setSupportActionBar(activityAccountBinding.toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Account");
+        activityAccountBinding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+            }
+        });
 
-        bottomNavigationView.setOnItemSelectedListener(this::onNavigationItemSelected);
+        activityAccountBinding.bottomNavigation.setSelectedItemId(R.id.bottom_account);
+
+        activityAccountBinding.bottomNavigation.setOnItemSelectedListener(this::onNavigationItemSelected);
         findViewById(R.id.editAccount).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

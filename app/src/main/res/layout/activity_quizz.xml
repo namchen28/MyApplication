@@ -9,173 +9,207 @@
        android:background="@drawable/top_background"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"/>
+
     <androidx.cardview.widget.CardView
         android:layout_margin="10dp"
         app:cardCornerRadius="10dp"
         app:cardBackgroundColor="@color/lavender"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout
-            android:orientation="vertical"
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/txtQuestion"
-                android:textColor="@android:color/background_dark"
-                android:textSize="25sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="Question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:textColor="@android:color/background_dark"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:id="@+id/imgQS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_gravity="center_horizontal">
+            </ImageView>
+
             <RadioGroup
 
                 android:id="@+id/rGroup"
-                android:layout_margin="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <RadioButton
-                    android:paddingLeft="10dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
 
+                <RadioButton
                     android:id="@+id/rA"
-                    android:button="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/custom_select_quiz"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <RadioButton
-                    android:paddingLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/rB"
                     android:button="@android:color/transparent"
-                    android:background="@drawable/custom_select_quiz"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <RadioButton
-                    android:paddingLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/rC"
-                    android:button="@android:color/transparent"
-                    android:background="@drawable/custom_select_quiz"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <RadioButton
-                    android:paddingLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/rD"
-                    android:button="@android:color/transparent"
-                    android:background="@drawable/custom_select_quiz"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </RadioGroup>
-            <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/lWrong"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:layout_marginLeft="15dp"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="20sp"
-                    android:text="Selected Answer:"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/custom_wrong"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-                    <TextView
-                        android:paddingLeft="15dp"
-                        android:layout_gravity="center"
-                        android:gravity="start"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/holo_red_dark"
-                        android:text="ABCD"
-                        android:id="@+id/txtSelect"
-                        android:layout_weight="1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <ImageView
-                        android:src="@drawable/ic_baseline_cancel_24"
-                        android:layout_marginRight="10dp"
-                        android:layout_gravity="center"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"/>
+                    android:paddingLeft="10dp" />
 
-                </LinearLayout>
-                <TextView
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="15dp"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="20sp"
-                    android:text="Correct answer:"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/custom_green"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:orientation="horizontal"
+                <RadioButton
+                    android:id="@+id/rB"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/custom_select_quiz"
+                    android:button="@android:color/transparent"
+                    android:paddingLeft="10dp" />
+
+                <RadioButton
+                    android:id="@+id/rC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/custom_select_quiz"
+                    android:button="@android:color/transparent"
+                    android:paddingLeft="10dp" />
+
+                <RadioButton
+                    android:id="@+id/rD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/custom_select_quiz"
+                    android:button="@android:color/transparent"
+                    android:paddingLeft="10dp" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/lWrong"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Selected Answer:"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/custom_wrong"
+                    android:orientation="horizontal">
+
                     <TextView
-                        android:paddingLeft="15dp"
-                        android:layout_gravity="center"
-                        android:gravity="start"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/background_light"
-                        android:text="ABCD"
-                        android:id="@+id/txtCorrect"
-                        android:layout_weight="1"
+                        android:id="@+id/txtSelect"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <ImageView
-                        android:src="@drawable/ic_baseline_cancel_24"
-                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:paddingLeft="15dp"
+                        android:text="ABCD"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="bold" />
+
+                    <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_baseline_cancel_24" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Correct answer:"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/custom_green"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtCorrect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:paddingLeft="15dp"
+                        android:text="ABCD"
+                        android:textColor="@android:color/background_light"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_baseline_cancel_24"
                         app:tint="@android:color/background_light" />
 
                 </LinearLayout>
-                <TextView
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="15dp"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="20sp"
-                    android:text="EXPLAINATION: "
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_weight="1"
-                    android:id="@+id/txtDetails"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="15dp"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="20sp"
 
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="EXPLAINATION: "
+                    android:textColor="@android:color/background_light"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+
+                    android:textColor="@android:color/background_light"
+                    android:textSize="20sp" />
+
                 <Button
 
-                    android:textSize="20sp"
                     android:id="@+id/btnNext"
-                    android:gravity="center"
-                    android:elevation="10dp"
-                    android:text="Next"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"/>
+                    android:layout_height="50dp"
+                    android:elevation="10dp"
+                    android:gravity="center"
+                    android:text="Next"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
 
+
         </LinearLayout>
+        </ScrollView>
 
     </androidx.cardview.widget.CardView>
+
 </LinearLayout>

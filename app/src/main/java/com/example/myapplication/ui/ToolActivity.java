@@ -20,6 +20,17 @@ public class ToolActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         activityToolBinding = ActivityToolBinding.inflate(getLayoutInflater());
         setContentView(activityToolBinding.getRoot());
+        setSupportActionBar(activityToolBinding.toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Tools");
+        activityToolBinding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+            }
+        });
+
+
 
 
         activityToolBinding.bottomNavigation.setSelectedItemId(R.id.bottom_tool);

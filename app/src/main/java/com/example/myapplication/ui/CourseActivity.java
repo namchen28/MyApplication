@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.ActivityCourseBinding;
@@ -30,6 +31,16 @@ public class CourseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         activityCourseBinding = ActivityCourseBinding.inflate(getLayoutInflater());
         setContentView(activityCourseBinding.getRoot());
+        setSupportActionBar(activityCourseBinding.toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Let's learn");
+        activityCourseBinding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+            }
+        });
+
 
         activityCourseBinding.bottomNavigation.setSelectedItemId(R.id.bottom_course);
 

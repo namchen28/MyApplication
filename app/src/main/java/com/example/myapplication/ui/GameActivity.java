@@ -20,6 +20,15 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         activityGameBinding = ActivityGameBinding.inflate(getLayoutInflater());
         setContentView(activityGameBinding.getRoot());
+        setSupportActionBar(activityGameBinding.toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Let's play");
+        activityGameBinding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+            }
+        });
 
         activityGameBinding.bottomNavigation.setSelectedItemId(R.id.bottom_game);
 
